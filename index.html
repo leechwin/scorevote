@@ -12,15 +12,17 @@
             var socket = io.connect();
 
             socket.on('message', function (data) {
-                var output = '';
+                /* var output = '';
                 output += '<li>';
                 output += '<h3>' + data.score + '</h3>';
                 output += '<p>' + data.message + '</p>';
                 output += '<p>' + data.location + '</p>';
                 output += '<p>' + data.date + '</p>';
-                output += '</li>';
-                
-                $(output).prependTo('#content');
+                output += '</li>'; */
+                // $('output').prependTo('#content');
+                // console.log(data);
+                $('#content').empty();
+                $('#content').append(data);
                 $('#content').listview('refresh');
             });
 
@@ -29,7 +31,7 @@
                                         score: $('#score').val(),
                                         message: $('#message').val(),
                                         location: location.origin,
-                                        date: new Date().toUTCString(),
+                                        date: new Date().getHours(),
                                         });
                 console.log('send emit');
             });
