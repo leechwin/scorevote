@@ -22,7 +22,7 @@ var io = socketio.listen(server);
 io.sockets.on('connection', function (socket) {
     socket.on('message', function (data) {
         if ( date == null ) {
-            date = new Date().getHours();
+            date = data.date;
         } else {
             console.log("host time:" + date);
             console.log("client time: " + data.date);
@@ -30,8 +30,8 @@ io.sockets.on('connection', function (socket) {
             var diff = data.date - date;
             console.log("diff time: " + diff);
             if ( diff > 3 ) {
-            //    date = null;
-            //    contents = '';
+                date = null;
+                contents = '';
             }
         }
 
