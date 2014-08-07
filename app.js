@@ -30,8 +30,8 @@ io.sockets.on('connection', function (socket) {
             var diff = data.date - date;
             console.log("diff time: " + diff);
             if ( diff > 3 ) {
-                date = null;
-                contents = '';
+            //    date = null;
+            //    contents = '';
             }
         }
 
